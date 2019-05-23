@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,9 @@
     <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
+
 <body>
-    
+
     <div class="container">
         <div class="row my-4">
             <h1>Library System</h1>
@@ -28,38 +30,41 @@
                     </div>
                     <div class="row my-2">
                         <label for="publisherName">Publisher</label>
-                        <input type="text" class="form-control" id="publisherName">   
+                        <input type="text" class="form-control" id="publisherName">
                     </div>
                     <div class="row">
                         <div class="col-6">
                             <label for="numberOfPages">Page Number</label>
-                            <input type="number" class="form-control" id="numberOfPage">   
-                       </div>
+                            <input type="number" class="form-control" id="numberOfPage">
+                        </div>
                         <div class="col-6">
                             <label for="serialNumber">Serial Number</label>
-                            <input type="number" class="form-control" id="serialNumber">   
+                            <input type="number" class="form-control" id="serialNumber">
                         </div>
                     </div>
                     <div>
                         <button type="submit" id="addBtn" class="btn btn-success btn-block my-4">Add</button>
-                    </div>   
-                    <div class="row">                        
-                            <div class="col-6">
-                                <button type="submit" id="updateBtn" class="btn btn-primary btn-block d-none" >Update Item</button>
-                            </div>  
-                            <div class="col-6">
-                                <button type="button" id="deleteBtn" class="btn btn-warning btn-block d-none" >Cancel</button>
-                            </div>                        
-                    </div>                                
-                     
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <button type="submit" id="updateBtn" class="btn btn-primary btn-block d-none">Update
+                                Item</button>
+                        </div>
+                        <div class="col-6">
+                            <button type="button" id="deleteBtn"
+                                class="btn btn-warning btn-block d-none">Cancel</button>
+                        </div>
+                    </div>
+
                 </form>
             </div>
-             <!-- Book List -->
+            <!-- Book List -->
 
             <div class="col-lg-7 col-md-6" id="book_list">
                 <table class="table table-borderless table-striped mt-3" id="tableId">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>Name</th>
                             <th>Author</th>
                             <th>Publisher</th>
@@ -67,28 +72,30 @@
                             <th>Serial Number</th>
                             <th>Update</th>
                             <th>Delete</th>
-                        </tr>      
+                        </tr>
                     </thead>
 
                     <tbody id="tbody">
-                        <tr>
+                        <!-- <tr>
+                            <td>1</td>
                             <td>Hasan</td>
                             <td>Maho Ağa</td>
                             <td>Alfa</td>
                             <td>200</td>
                             <td>1</td>
-                            <td><a href="#" id = "update-employee" class= "btn btn-success">Güncelle</a></td> 
-                            <td> <a href="#" id = "delete-employee" class= "btn btn-danger">Sil</a></td>
+                            <td><a href="#" id="update-employee" class="btn btn-success">Güncelle</a></td>
+                            <td> <a href="#" id="delete-employee" class="btn btn-danger">Sil</a></td>
                         </tr>
                         <tr>
+                            <td>2</td>
                             <td>Hasan</td>
                             <td>Maho Ağa</td>
                             <td>Alfa</td>
                             <td>200</td>
                             <td>1</td>
-                            <td><a href="#" id = "update-employee" class= "btn btn-success">Güncelle</a></td> 
-                            <td> <a href="#" id = "delete-employee" class= "btn btn-danger">Sil</a></td>
-                        </tr>                        
+                            <td><a href="#" id="update-employee" class="btn btn-success">Güncelle</a></td>
+                            <td> <a href="#" id="delete-employee" class="btn btn-danger">Sil</a></td>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -98,8 +105,9 @@
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="./bundles/bundle.js"></script>
 </body>
+
 </html>
