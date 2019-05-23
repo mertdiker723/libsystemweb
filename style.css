@@ -1,0 +1,13 @@
+#book_list{
+    background: rgb(228, 165, 165);
+    width: 92.5%;
+    height: 440px;
+    left: 25px;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    border-radius: 7.5px;
+}
+
+body{
+    background-color: rgb(200, 216, 211)
+}
