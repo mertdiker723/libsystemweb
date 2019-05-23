@@ -17,7 +17,7 @@
 
         <div class="row my-2">
             <div class="col-lg-5 col-md-6 bg-dark text-light p-4 mb-5" style="opacity: 0.8; border-radius: 7px;">
-                <form class="form-group justify-content-center">
+                <form class="form-group justify-content-center" id="formId">
                     <div class="row">
                         <label for="bookName">Name</label>
                         <input type="text" class="form-control" id="bookName">
@@ -41,14 +41,23 @@
                         </div>
                     </div>
                     <div>
-                        <button type="button" class="btn btn-success btn-block my-4">Add</button>
-                    </div>
+                        <button type="submit" id="addBtn" class="btn btn-success btn-block my-4">Add</button>
+                    </div>   
+                    <div class="row">                        
+                            <div class="col-6">
+                                <button type="submit" id="updateBtn" class="btn btn-primary btn-block d-none" >Update Item</button>
+                            </div>  
+                            <div class="col-6">
+                                <button type="button" id="deleteBtn" class="btn btn-warning btn-block d-none" >Cancel</button>
+                            </div>                        
+                    </div>                                
+                     
                 </form>
             </div>
              <!-- Book List -->
 
             <div class="col-lg-7 col-md-6" id="book_list">
-                <table class="table table-borderless table-striped mt-3 ">
+                <table class="table table-borderless table-striped mt-3" id="tableId">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -56,16 +65,20 @@
                             <th>Publisher</th>
                             <th>Page Number</th>
                             <th>Serial Number</th>
+                            <th>Update</th>
+                            <th>Delete</th>
                         </tr>      
                     </thead>
 
-                    <tbody>
-                        <tr class="tab">
+                    <tbody id="tbody">
+                        <tr>
                             <td>Hasan</td>
                             <td>Maho Ağa</td>
                             <td>Alfa</td>
                             <td>200</td>
                             <td>1</td>
+                            <td><a href="#" id = "update-employee" class= "btn btn-success">Güncelle</a></td> 
+                            <td> <a href="#" id = "delete-employee" class= "btn btn-danger">Sil</a></td>
                         </tr>
                         <tr>
                             <td>Hasan</td>
@@ -73,70 +86,9 @@
                             <td>Alfa</td>
                             <td>200</td>
                             <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>Hasan</td>
-                            <td>Maho Ağa</td>
-                            <td>Alfa</td>
-                            <td>200</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>Hasan</td>
-                            <td>Maho Ağa</td>
-                            <td>Alfa</td>
-                            <td>200</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>Hasan</td>
-                            <td>Maho Ağa</td>
-                            <td>Alfa</td>
-                            <td>200</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>Hasan</td>
-                            <td>Maho Ağa</td>
-                            <td>Alfa</td>
-                            <td>200</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>Hasan</td>
-                            <td>Maho Ağa</td>
-                            <td>Alfa</td>
-                            <td>200</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>Hasan</td>
-                            <td>Maho Ağa</td>
-                            <td>Alfa</td>
-                            <td>200</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>Hasan</td>
-                            <td>Maho Ağa</td>
-                            <td>Alfa</td>
-                            <td>200</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>Hasan</td>
-                            <td>Maho Ağa</td>
-                            <td>Alfa</td>
-                            <td>200</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>Hasan</td>
-                            <td>Maho Ağa</td>
-                            <td>Alfa</td>
-                            <td>200</td>
-                            <td>1</td>
-                        </tr>
+                            <td><a href="#" id = "update-employee" class= "btn btn-success">Güncelle</a></td> 
+                            <td> <a href="#" id = "delete-employee" class= "btn btn-danger">Sil</a></td>
+                        </tr>                        
                     </tbody>
                 </table>
             </div>
