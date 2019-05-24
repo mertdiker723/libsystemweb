@@ -3,26 +3,15 @@ export default class UI {
         this.bookList = $("#book_list")[0];
         this.tableBook = $("#tableId")[0];
         this.tbody = $("#tbody");
+        
+        this.bookName = $("#bookName");
+        this.authorName = $("#authorName");
+        this.publisherName = $("#publisherName");
+        this.numberOfPage = $("#numberOfPage");
+        this.serialNumber = $("#serialNumber");
     }
 
     writeAll(data) {
-        // let html = "";
-        // data.forEach(element => {
-        //     html +=
-        //         `   <tr>
-        //             <td>${element.id}</td>
-        //             <td>${element.name}</td>
-        //             <td>${element.author}</td>
-        //             <td>${element.publisher}</td>
-        //             <td>${element.pageNumber}</td>
-        //             <td>${element.serialNumber}</td>
-        //             <td><a href="#" id="update-employee" class="btn btn-success">Güncelle</a></td>
-        //             <td> <a href="#" id="delete-employee" class="btn btn-danger">Sil</a></td>
-        //         </tr>
-        //     `;
-        // });
-
-        // tbody.innerHTML = html;
         $.each(data,(index,element) => {
             $(this.tbody).append(`
                     <tr>
@@ -32,13 +21,12 @@ export default class UI {
                         <td>${element.publisher}</td>
                         <td>${element.pageNumber}</td>
                         <td>${element.serialNumber}</td>
-                        <td><a href="#" id="update-employee" class="btn btn-success">Güncelle</a></td>
-                        <td> <a href="#" id="delete-employee" class="btn btn-danger">Sil</a></td>
+                        <td><a href="#" id="update-book" class="btn btn-success">Güncelle</a></td>
+                        <td><a href="#" id="delete-book" class="btn btn-danger">Sil</a></td>
                     </tr>
                 `);
             });
     }
-
     writeOneBook(data) {
         this.tbody.append(`  
             <tr>
@@ -48,9 +36,23 @@ export default class UI {
                 <td>${data.publisher}</td>
                 <td>${data.pageNumber}</td>
                 <td>${data.serialNumber}</td>
-                <td><a href="#" id="update-employee" class="btn btn-success">Güncelle</a></td>
-                <td> <a href="#" id="delete-employee" class="btn btn-danger">Sil</a></td>
+                <td><a href="#" id="update-book" class="btn btn-success">Güncelle</a></td>
+                <td><a href="#" id="delete-book" class="btn btn-danger">Sil</a></td>
             </tr>
         `);
+        this.inputClearAll();
     }
+
+    deleteOneBookFromUI(target){
+        target.remove();
+    }
+
+    inputClearAll(){
+      this.bookName.val("");
+      this.authorName.val("");
+      this.publisherName.val("");
+      this.numberOfPage.val("");
+      this.serialNumber.val("");
+    }
+
 } 

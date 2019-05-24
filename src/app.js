@@ -20,32 +20,49 @@ const cancelBtn = $("#cancelBtn")[0];
 
 eventListeners();
 
-function eventListeners(){
-   
+function eventListeners() {
+
 }
 
-$(document).ready(function(){
+// Sayfa Yüklendiğinde Gelen Veriler
+$(document).ready(function () {
     request.get()
-    .then(data => ui.writeAll(data))
-    .catch(error => console.log(error));
+        .then(data => ui.writeAll(data))
+        .catch(error => console.log(error));
 });
 
-$("#addBtn").on("click",(e)=> {
-    const bookN =  bookName.val();
+
+// Ekleme İşlemi
+$("#addBtn").on("click", (e) => {
+    const bookN = bookName.val();
     const author = authorName.val();
     const publisher = publisherName.val();
     const numberPage = numberOfPage.val();
     const serialNum = serialNumber.val();
-    request.post({
-        name:bookN,
-        author:author,
-        publisher:publisher,
-        pageNumber:numberPage,
-        serialNumber:serialNum
-    })
-    .then(data => {
-        ui.writeOneBook(data);
-    })
-    .catch(error => console.log(error));
+    if(bookN !== "" & author !== "" & publisher !== "" & numberPage !== "" & serialNum !== ""){
+        request.post({
+            name: bookN,
+            author: author,
+            publisher: publisher,
+            pageNumber: numberPage,
+            serialNumber: serialNum
+        })
+            .then(data => {
+                ui.writeOneBook(data);
+            })
+            .catch(error => console.log(error));
+    }
+    else{
+        window.alert("Hepsini Doldurmak Zorundasınız..!");
+    }
+    
     e.preventDefault();
 })
+
+// Silme İşlemi
+$("#book_list").on("click", (e) => { // ????
+    if (e.target.id == "delete-book") {
+        request.delete(e.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent);
+        ui.deleteOneBookFromUI(e.target.parentElement.parentElement);
+    }
+});
