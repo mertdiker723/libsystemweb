@@ -3,7 +3,7 @@ export default class UI {
         this.bookList = $("#book_list")[0];
         this.tableBook = $("#tableId")[0];
         this.tbody = $("#tbody");
-        
+
         this.bookName = $("#bookName");
         this.authorName = $("#authorName");
         this.publisherName = $("#publisherName");
@@ -12,7 +12,7 @@ export default class UI {
     }
 
     writeAll(data) {
-        $.each(data,(index,element) => {
+        $.each(data, (index, element) => {
             $(this.tbody).append(`
                     <tr>
                         <td>${element.id}</td>
@@ -25,7 +25,7 @@ export default class UI {
                         <td><a href="#" id="delete-book" class="btn btn-danger">Delete</a></td>
                     </tr>
                 `);
-            });
+        });
     }
     writeOneBook(data) {
         this.tbody.append(`  
@@ -43,23 +43,42 @@ export default class UI {
         this.inputClearAll();
     }
 
-    deleteOneBookFromUI(target){
+    deleteOneBookFromUI(target) {
         target.remove();
     }
 
-    inputClearAll(){
-      this.bookName.val("");
-      this.authorName.val("");
-      this.publisherName.val("");
-      this.numberOfPage.val("");
-      this.serialNumber.val("");
+    inputClearAll() {
+        this.bookName.val("");
+        this.authorName.val("");
+        this.publisherName.val("");
+        this.numberOfPage.val("");
+        this.serialNumber.val("");
     }
 
-    writeSelectedBookIntoTextBoxes(tr){
+    writeSelectedBookIntoTextBoxes(tr) {
         this.bookName.val(tr.name);
         this.authorName.val(tr.author);
         this.publisherName.val(tr.publisher);
         this.numberOfPage.val(tr.pageNumber);
         this.serialNumber.val(tr.serialNumber);
     }
+
+    updateSelectedBook(data,tr){
+
+        tr.innerHTML = `  
+        <tr>
+            <td>${data.id}</td>
+            <td>${data.name}</td>
+            <td>${data.author}</td>
+            <td>${data.publisher}</td>
+            <td>${data.pageNumber}</td>
+            <td>${data.serialNumber}</td>
+            <td><a href="#" id="update-book" class="btn btn-success">Edit</a></td>
+            <td><a href="#" id="delete-book" class="btn btn-danger">Delete</a></td>
+        </tr>
+    `;
+        this.inputClearAll();
+       
+    }
+
 } 
