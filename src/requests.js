@@ -25,7 +25,6 @@ export default class Request {
         return dataJson;
     }
 
-    //Ajax
     put(id, value) {
         return new Promise((resolse, reject) => {
             fetch(`${this.url}/${id}`, {

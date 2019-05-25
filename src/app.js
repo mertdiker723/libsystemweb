@@ -4,10 +4,6 @@ import UI from './ui';
 const request = new Request();
 const ui = new UI();
 
-// select id
-
-const form = $("#formId")[0];
-
 const bookName = $("#bookName");
 const authorName = $("#authorName");
 const publisherName = $("#publisherName");
@@ -15,16 +11,7 @@ const numberOfPage = $("#numberOfPage");
 const serialNumber = $("#serialNumber");
 
 let selectedBookId;
-
-const addbutton = $("#addBtn")[0];
-const updateBtn = $("#updateBtn")[0];
-const cancelBtn = $("#cancelBtn")[0];
-
-eventListeners();
-
-function eventListeners() {
-
-}
+let parentTr = "";
 
 // Sayfa Yüklendiğinde Gelen Veriler
 $(document).ready(function () {
@@ -32,7 +19,6 @@ $(document).ready(function () {
         .then(data => ui.writeAll(data))
         .catch(error => console.log(error));
 });
-
 
 // Ekleme İşlemi
 $("#addBtn").on("click", (e) => {
@@ -61,9 +47,9 @@ $("#addBtn").on("click", (e) => {
 
     e.preventDefault();
 })
-let parentTr = ""; 
+
 // Tek Silme İşlemi ve Edit İşlemi
-$("#book_list").on("click", (e) => { // ????
+$("#book_list").on("click", (e) => { 
     if (e.target.id === "delete-book") {
         request.delete(e.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent);
         ui.deleteOneBookFromUI(e.target.parentElement.parentElement);
@@ -74,7 +60,7 @@ $("#book_list").on("click", (e) => { // ????
         parentTr = e.target.parentElement.parentElement; //zaten şuan tablodan var olan TR elementi ve içinde ki td
         //elemenlerini aldık üzerine yazdırmak için ui da ki başka bir fonksiyona parametre verdik.
 
-        // id update id  
+
         $("#addBtn")[0].classList.add("d-none");
         $("#updateBtn")[0].classList.remove("d-none");
         $("#cancelBtn")[0].classList.remove("d-none");
@@ -115,7 +101,7 @@ $("#updateBtn").on("click", (e) => { // Update İşlemi bitince tekrar başlang�
             serialNumber: parseFloat(serialNum)
         })
             .then(data => {
-               ui.updateSelectedBook(data,parentTr);
+                ui.updateSelectedBook(data, parentTr);
             })
             .catch(error => window.alert("Update İşlemi yapılırken bir hata ile karşılaşıldı."))
     }
@@ -123,5 +109,10 @@ $("#updateBtn").on("click", (e) => { // Update İşlemi bitince tekrar başlang�
     else {
         window.alert("Tüm Alanları Doldurunuz.");
     }
+
+    $("#addBtn")[0].classList.remove("d-none");
+    $("#updateBtn")[0].classList.add("d-none");
+    $("#cancelBtn")[0].classList.add("d-none");
+    
     e.preventDefault();
 })

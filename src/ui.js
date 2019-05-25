@@ -78,7 +78,6 @@ export default class UI {
         </tr>
     `;
         this.inputClearAll();
-       
     }
 
 } 
