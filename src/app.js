@@ -39,13 +39,14 @@ $("#addBtn").on("click", (e) => {
     const publisher = publisherName.val();
     const numberPage = numberOfPage.val();
     const serialNum = serialNumber.val();
+
     if(bookN !== "" & author !== "" & publisher !== "" & numberPage !== "" & serialNum !== ""){
         request.post({
-            name: bookN,
-            author: author,
-            publisher: publisher,
-            pageNumber: numberPage,
-            serialNumber: serialNum
+            name: bookN.trim(),
+            author: author.trim(),
+            publisher: publisher.trim(),
+            pageNumber: parseFloat(numberPage),
+            serialNumber: parseFloat(serialNum)
         })
             .then(data => {
                 ui.writeOneBook(data);
@@ -59,10 +60,28 @@ $("#addBtn").on("click", (e) => {
     e.preventDefault();
 })
 
-// Silme İşlemi
+// Tek Silme İşlemi ve Güncelleme İşlemi
 $("#book_list").on("click", (e) => { // ????
-    if (e.target.id == "delete-book") {
+    if (e.target.id === "delete-book") {
         request.delete(e.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent);
         ui.deleteOneBookFromUI(e.target.parentElement.parentElement);
     }
+    else if(e.target.id === "update-book"){
+        //console.log(e.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent);
+        // id update id  
+        $("#addBtn")[0].classList.add("d-none");
+        $("#updateBtn")[0].classList.remove("d-none");
+        $("#cancelBtn")[0].classList.remove("d-none");
+        const obj = {
+               name:e.target.parentElement.parentElement.children[1].textContent,
+               author:e.target.parentElement.parentElement.children[2].textContent,
+               publisher:e.target.parentElement.parentElement.children[3].textContent,
+               pageNumber:e.target.parentElement.parentElement.children[4].textContent,
+               serialNumber:e.target.parentElement.parentElement.children[5].textContent,
+            }
+        ui.writeSelectedBookIntoTextBoxes(obj);
+           
+            
+    }
 });
+

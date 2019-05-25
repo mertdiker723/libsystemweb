@@ -21,8 +21,8 @@ export default class UI {
                         <td>${element.publisher}</td>
                         <td>${element.pageNumber}</td>
                         <td>${element.serialNumber}</td>
-                        <td><a href="#" id="update-book" class="btn btn-success">Güncelle</a></td>
-                        <td><a href="#" id="delete-book" class="btn btn-danger">Sil</a></td>
+                        <td><a href="#" id="update-book" class="btn btn-success">Edit</a></td>
+                        <td><a href="#" id="delete-book" class="btn btn-danger">Delete</a></td>
                     </tr>
                 `);
             });
@@ -36,8 +36,8 @@ export default class UI {
                 <td>${data.publisher}</td>
                 <td>${data.pageNumber}</td>
                 <td>${data.serialNumber}</td>
-                <td><a href="#" id="update-book" class="btn btn-success">Güncelle</a></td>
-                <td><a href="#" id="delete-book" class="btn btn-danger">Sil</a></td>
+                <td><a href="#" id="update-book" class="btn btn-success">Edit</a></td>
+                <td><a href="#" id="delete-book" class="btn btn-danger">Delete</a></td>
             </tr>
         `);
         this.inputClearAll();
@@ -55,4 +55,11 @@ export default class UI {
       this.serialNumber.val("");
     }
 
+    writeSelectedBookIntoTextBoxes(tr){
+        this.bookName.val(tr.name);
+        this.authorName.val(tr.author);
+        this.publisherName.val(tr.publisher);
+        this.numberOfPage.val(tr.pageNumber);
+        this.serialNumber.val(tr.serialNumber);
+    }
 } 

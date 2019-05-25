@@ -1,36 +1,36 @@
 {
   "book": [
     {
-      "name": "kara lale",
-      "author": "maho ağa",
-      "publisher": "alfa",
-      "pageNumber": 200,
-      "serialNumber": 121,
-      "id": 0
-    },
-    {
-      "name": "kara lale",
-      "author": "maho ağa",
-      "publisher": "alfa",
-      "pageNumber": 200,
-      "serialNumber": 121,
+      "name": "Yapay Zeka",
+      "author": "Can Hikmet Değirmenci",
+      "publisher": "GİRDAP KİTAP",
+      "pageNumber": 285,
+      "serialNumber": 429420,
       "id": 1
     },
     {
-      "name": "Mert Diker",
-      "author": "Masan",
-      "publisher": "asd",
-      "pageNumber": "33",
-      "serialNumber": "33",
+      "name": "Beynin Şifresi",
+      "author": "İsmail Hakkı",
+      "publisher": "Alfa Yayınları",
+      "pageNumber": 344,
+      "serialNumber": 232313,
       "id": 2
     },
     {
-      "name": "Mert Diker",
-      "author": "Masan",
-      "publisher": "asd",
-      "pageNumber": "6",
-      "serialNumber": "6",
+      "name": "Kahramanın Yolculuğu",
+      "author": "Aylin Uyar",
+      "publisher": "ARTSHOP YAYINCILIK",
+      "pageNumber": 168,
+      "serialNumber": 903112,
       "id": 3
+    },
+    {
+      "name": "Üstün Yetenek",
+      "author": "Kenan Okur",
+      "publisher": "VAPUR YAYINLARI",
+      "pageNumber": 132,
+      "serialNumber": 206496,
+      "id": 4
     }
   ]
 }
